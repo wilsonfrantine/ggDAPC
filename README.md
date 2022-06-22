@@ -2,6 +2,8 @@
 
 ## A set of codes to plot DAPC with ggplot2
 
+![Comparison of plots](./images/comparison.png)
+
 Discriminant Analysis of Principal Components (DAPC) from Adegenet R package is quite usefull analysis to explore differences between sets of genetic data (SNIP or SSR data) without genetic models assumptions.
 
 This chunck of code intends to compile a set of functions to help people to plot DAPC outputs in ggplot2 graphic grammar.
@@ -21,14 +23,32 @@ I recommend users to take a look at the docummentation of all these packages, bu
 
 See the comparison of output plot examples:
 
-### Original Plots
+### How to use
 
-**Scaterplots**
+1. Download the DAPC.R file 
+2. Open in your R editor software
+3. change the path of the input file ('file' variable) to the one were is your genepop input file data.
+4. Run the code!
 
-![Original DAPC scatter](./images/dapc_org_plot.svg)
+### Important details
 
-**Compoplot**
+This script is just a simple pipeline and it is not a set of functions to translate the results yet.
 
-### ggPlot2 + patchwork composition
+The code run two sets of analysis:
 
-![ggplot2 Composition](./images/dapc_ggplot2.svg)
+#### 1. A priori groupment as provided in the genepop input. 
+
+   Usually the "populations" as described by the user into the genepop input file. It is usefull to see whether the data support sampling sites separation as expected. See more in the Adegenet documentation
+
+#### 2. Best K groupment given the data.  
+
+   Some tutorials indicate as the best practice try to findout the best groupment hypothesis given the data. The adegenet package has a function: find.best.k which provides some support to group individuas by bestK algorithm and bayesian information (see more in adegenet docs).
+   This seccond option show data considering the user provided bestK groupmented from find.cluster function.
+    
+### Disclaimer
+
+This code works only when there is more than one DA axis. The kernel density when only a single DA is provided is not implemented yet.
+Users must to be sure about their choices on their own data. There is no warants for this script.
+You can change any parameters of the graph whenever you want.
+
+
