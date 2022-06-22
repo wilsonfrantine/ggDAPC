@@ -1,0 +1,52 @@
+---
+title: "R DAPC"
+author: "Dr. Wilson Frantine-Silva"
+date: '2022-06-22'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# DAPC analysis with ggplot2
+
+This is a simple example of how to run a simple DAPC analysis with SSR or SNIP data.
+
+For details about DAPC, see the adegenet package documentation and Joumbart et al., (2010). 
+
+DAPC analysis is very useful for the exploratory analysis of genetic data. It does not rely on Hardy-Weinberg equilibrium assumptions or other genetic models our data often breaks.
+
+There are roughly two ways to run a DAPC analysis. But before get deeper into it, lets get the libraries we are going to use:
+
+
+```{r}
+library("adegenet") # to run DAPC
+library("tidyverse") # to use pipe %>% and other functions
+library("ggplot2") # to get better plots
+library("scico") # to get good scientific color pallets
+library("patchwork") # to make good compositions
+```
+
+## Importing data 
+
+The adegenet package accepts several types of data, but the genepop is one of most popular for sure.    
+ > ! Make sure your file has .gen as extension.
+
+```{r}
+file <- "~/genepop.gen"
+```
+
+After that, lets read it as an genepop file with `read.genepop()` function, and create a summary of it.
+ > ! make sure to have `ncode` equal to the number of character used to code each alellel!
+
+```{r}
+data <- adegenet::read.genepop(file, ncode = 3)
+summary(data)
+```
+
+
+```{r}
+```
+
+
