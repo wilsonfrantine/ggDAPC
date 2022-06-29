@@ -32,7 +32,7 @@ See the comparison of output plot examples:
 
 ### Important details
 
-This script is just a simple pipeline and it is not a set of functions to translate the results yet.
+This script is just a simple pipeline based on functions stored at `ggDAPC.R` file.
 
 The code runs two sets of analyses:
 
@@ -40,14 +40,12 @@ The code runs two sets of analyses:
 
    Usually, the "populations" as described by the user in the genepop input file. It is useful to see whether the data support sampling site separation as expected. See more in the Adegenet documentation
 
-#### 2. Best K grouping gave the data.  
+#### 2. Best K grouping giving the data.  
 
-   Some tutorials indicate as the best practice try to find out the best grouping hypothesis given the data. The adegenet package has a function: find.best.k which provides some support to group individuals by bestK algorithm and Bayesian information (see more in adegenet docs).
+   Some tutorials indicate as the best practice try to find out the best grouping hypothesis given the data. The adegenet package has a function: find.best.k which provides some support to group individuals by bestK algorithm and Bayesian information criterion (see more in adegenet docs).
    This second option shows data considering the user-provided bestK grouping from find.cluster function.
     
 ### Disclaimer
 
-This code works only when there is more than one DA axis. The kernel density when only a single DA is provided is not implemented yet.
 Users must be sure about their choices on their own data. There is no warrant for this script.
 You can change any parameters of the graph whenever you want.
-

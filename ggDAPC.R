@@ -146,12 +146,18 @@ ggKtable <- function(data, k){
     ktable %>%
     ggplot(aes(x=Var1, y=Freq, fill=Var2)) + 
     geom_col(position = "stack") + 
-    labs(x="Pop", y="N", fill="K")
+    labs(x="Pop", y="N", fill="K") +
+    scale_fill_scico_d(palette = "romaO", end = 0.8, begin = 0.2)
+  
   out$plot2 <-  
     ktable %>%
     ggplot(aes(x=Var1, y=Var2, color=Var2)) + 
     geom_point(aes(size=Freq), stroke=5, shape=15) +
     labs(x="Pop", y="K", color="K", size="N")+
-    theme_classic()
+    theme_classic()+
+    scale_fill_scico_d(palette = "romaO", end = 0.8, begin = 0.2)+
+    scale_color_scico_d(palette = "romaO", end = 0.8, begin = 0.2)+
+    guides(color= "none")
+
   return(out)
 }
