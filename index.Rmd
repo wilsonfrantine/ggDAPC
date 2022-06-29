@@ -2,7 +2,10 @@
 title: "Visualizing a DAPC analysis with ggplot2"
 author: "Dr. Wilson Frantine-Silva"
 date: '2022-06-22'
-output: html_document
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # DAPC analysis with ggplot2
 
-![A DAPC plot built with ggplot2](./images/com.png)
+![](./images/com.png)
 
 
 This is a simple example of how to run a simple DAPC analysis with SSR or SNIP data.
@@ -58,7 +61,7 @@ The most straightforward way to run a DAPC is by considering the implicit data s
 
 The analysis will then provides Discriminant Functions, giving the populations provided, to maximize the differentiation between the groups provided by the user.
 
-> Note! In this analysis, we'll directly select Principal Components and Discriminant functions through the parameters `perc.pca` (% of cummulative var we wanna retain), `pca.select` (method to use % or n of PCs) and `n.da` (number of discriminant functions to retain). To see more, run `?dapc`.
+> Note! In this analysis, we'll directly select Principal Components and Discriminant functions through the parameters `perc.pca` (% of cumulative var we wanna retain), `pca.select` (method to use % or n of PCs), and `n.da` (number of discriminant functions to retain). To see more, run `?dapc`.
 
 ```{r}
 PopDapc <- dapc(data, perc.pca = 70, pca.select = "percVar", n.da = 2)
@@ -79,7 +82,7 @@ compoplot(PopDapc) ## data %>% compoplot also works
 
 There is nothing wrong with the original plots. They are great, but we can create more flexible plots with ggplot2.
 
-Let's say you don't like the colors or the shape of either plot above, or that you would like to create a composition. Both tasks are few lines way with ggplot2
+Let's say you don't like the colors or the shape of either plot above, or that you would like to create a composition. Both tasks are a few lines away with ggplot2
 
 Once we have sourced the `ggDAPC.R` file, it is simple like the lines bellow
 
@@ -91,14 +94,14 @@ ggPopDapc
 
 Same for the `compoplot`:
 
-```{r}
+```{r, fig.height=3 }
 popCompoplot <- ggCompoplot(PopDapc)
 popCompoplot
 ```
 
-Finally we can create any plot combination by mixing plots or changing their properties with ggplot2 syntax. 
+Finally, we can create any plot combination by mixing plots or changing their properties with ggplot2 syntax. 
 
-In the lines below we will create an layout to shape the plot area and then, we will create these plots, by calling their respective function:
+In the lines below we will create a layout to shape the plot area and then, we will create these plots, by calling their respective function:
 
 ```{r}
 layout <- c(
@@ -110,9 +113,11 @@ layout <- c(
 plot(layout)
 ```
 
-The layout is simple to understand. Think about it as a table and the numbers in t, l, b, r indicate the cell where the top, left, bottom, and right will be the respective plot limits. 
+The layout is simple to understand. For example:     
+`patchwork::area(t = 1, l = 1, b = 4, r = 3)`     
+says that this plot will start at the top (t) and left (l) in the first cell and will end at the bottom (b = 4) and right (r = 3) in the fourth and third cells, respectively.
 
-now, to the actual plot... 
+Now, to the actual plot... 
 
 ```{r}
 ggDapc(PopDapc) + ggPCvar(PopDapc) + 
@@ -121,8 +126,10 @@ patchwork::plot_layout(design = layout)
 
 ```
 
+That makes it simple
 
-## References
+
+## References<a id="References"></a>
 
 - Jombart, T., Devillard, S., & Balloux, F. (2010). Discriminant analysis of principal components: a new method for the analysis of genetically structured populations. BMC genetics, 11(1), 1-15.
 
