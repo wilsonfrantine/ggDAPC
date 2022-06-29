@@ -137,3 +137,21 @@ ggCompoplot <- function(dapc){
     )
   return(out)
 }
+
+ggKtable <- function(data, k){
+  ktable <- table(data$pop, k$grp) %>% 
+    as.data.frame() 
+  out <- list()
+  out$plot1 <- 
+    ktable %>%
+    ggplot(aes(x=Var1, y=Freq, fill=Var2)) + 
+    geom_col(position = "stack") + 
+    labs(x="Pop", y="N", fill="K")
+  out$plot2 <-  
+    ktable %>%
+    ggplot(aes(x=Var1, y=Var2, color=Var2)) + 
+    geom_point(aes(size=Freq), stroke=5, shape=15) +
+    labs(x="Pop", y="K", color="K", size="N")+
+    theme_classic()
+  return(out)
+}
