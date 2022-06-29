@@ -60,7 +60,7 @@ ggDapc <- function (dapc=NULL, k=NULL, x="LD1", y="LD2", cstar=TRUE, ellipse=TRU
       scale_fill_scico_d(palette = "romaO", begin = 0.2, end = 0.8)
   }
   
-  if(dapc$n.da > 1) ggDataShaper(dapc, k) %>% ggScatter(., x, y, cstar, ellipse, grp.labels)
+  if(dapc$n.da > 1) ggDataShaper(dapc, k) %>% ggScatter(., x, y, cstar, ellipse, labels)
   else ggDataShaper(dapc, k) %>% ggDensity
 }
 
