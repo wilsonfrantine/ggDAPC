@@ -25,7 +25,7 @@ See the comparison of output plot examples:
 
 ### How to use
 
-[Take a look at a simple tutorial]("https://wilsonfrantine.github.io/ggDAPC/")
+![Take a look at a simple tutorial]("https://wilsonfrantine.github.io/ggDAPC/")
 
 1. Download the DAPC.R file 
 2. Open in your R editor software
