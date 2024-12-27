@@ -1,4 +1,4 @@
-# 📊 ggDAPC  
+# <img src="https://cdn-icons-png.flaticon.com/512/15387/15387869.png" alt="scatterplot icon" width="40" align="center"> ggDAPC
 
 **ggDAPC** is an R script that enhances the visualization of Discriminant Analysis of Principal Components (DAPC) results using the versatile `ggplot2` package.  
 DAPC, available in the `adegenet` package, is a robust method for exploring genetic differences among groups without relying on genetic model assumptions.  
