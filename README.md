@@ -1,53 +1,68 @@
-# ggDAPC
+# 📊 ggDAPC  
 
-## A set of codes to plot DAPC with ggplot2
+**ggDAPC** is an R script that enhances the visualization of Discriminant Analysis of Principal Components (DAPC) results using the versatile `ggplot2` package.  
+DAPC, available in the `adegenet` package, is a robust method for exploring genetic differences among groups without relying on genetic model assumptions.  
+By leveraging `ggplot2`, **ggDAPC** offers customizable and publication-ready graphics for your genetic data analyses.  
 
-![Comparison of plots](./images/comparison.png)
+![Comparison of plots](./images/comparison.png)  
 
-Discriminant Analysis of Principal Components (DAPC) from the Adegenet R package is a quite useful analysis to explore differences between sets of genetic data (SNIP or SSR data) without genetic model assumptions.
+---
 
-This chunk of code intends to compile a set of functions to help people to plot DAPC outputs in ggplot2 graphic grammar.
-The ggplot2 package is quite flexible and users can customize these objects in several ways.
+## ✨ Features  
 
-These scripts are based so far on the following packages:
+- **Enhanced Visualization** – Transform standard DAPC plots into customizable `ggplot2` graphics.  
+- **Flexibility** – Modify colors, shapes, and layouts to suit your publication needs.  
+- **Integration** – Seamlessly works with outputs from the `adegenet` package.  
 
- - **base R v4.1.1**    
-  - **adegenet**: Exploratory Analysis of Genetic and Genomic Data    
-  - **tidyverse**: a set of packages that work in harmony - for data wragling    
-  - **ggplot2**: Create Elegant Data Visualisations Using the Grammar of Graphics    
-  - **scico**: Colour Palettes Based on the Scientific Colour-Maps - colorblind friendly    
-  - **patchwork**: The Composer of Plots - a ggplot2 arranger    
+---
 
+## 📦 Dependencies  
 
-I recommend users take a look at the documentation of all these packages, but you don't have to do so for the script use.
+To utilize **ggDAPC**, ensure the following R packages are installed:  
 
-See the comparison of output plot examples:
+- **base R v4.1.1**  
+- **adegenet** – Exploratory Analysis of Genetic and Genomic Data  
+- **tidyverse** – A collection of packages for data wrangling  
+- **ggplot2** – Create Elegant Data Visualisations Using the Grammar of Graphics  
+- **scico** – Colour Palettes Based on the Scientific Colour-Maps (colorblind friendly)  
+- **patchwork** – The Composer of Plots - a `ggplot2` arranger  
 
-### How to use
+It's recommended to review the documentation of these packages to fully leverage their capabilities.  
 
-[Take a look at a simple tutorial](https://wilsonfrantine.github.io/ggDAPC/)
+---
 
-1. Download the DAPC.R file 
-2. Open in your R editor software
-3. change the path of the input file ('file' variable) to the one where is your genepop input file data.
-4. Run the code!
+## 🚀 Getting Started  
 
-### Important details
+1. **Download the `DAPC.R` File** – Obtain the script from the repository.  
+2. **Load the Script** – Source the script in your R environment.  
+   ```r
+   source("path_to/DAPC.R")
+   ```  
+3. **Prepare Your Data** – Ensure your genetic data is in the appropriate format (e.g., GENEPOP file with `.gen` extension).  
+4. **Run the Analysis** – Execute the functions provided in the script to perform DAPC and generate plots.  
 
-This script is just a simple pipeline based on functions stored at `ggDAPC.R` file.
+For a step-by-step guide, refer to the [simple tutorial](https://wilsonfrantine.github.io/ggDAPC/).  
 
-The code runs two sets of analyses:
+---
 
-#### 1. A priori grouping as provided in the genepop input. 
+## 🔍 Analysis Overview  
 
-   Usually, the "populations" as described by the user in the genepop input file. It is useful to see whether the data support sampling site separation as expected. See more in the Adegenet documentation
+**ggDAPC** facilitates two primary analyses:  
 
-#### 2. Best K grouping giving the data.  
+1. **A Priori Grouping** – Analyzes groups as defined in your input file, typically representing predefined populations. This approach assesses whether the data supports expected group separations.  
 
-   Some tutorials indicate as the best practice try to find out the best grouping hypothesis given the data. The adegenet package has a function: find.best.k which provides some support to group individuals by bestK algorithm and Bayesian information criterion (see more in adegenet docs).
-   This second option shows data considering the user-provided bestK grouping from find.cluster function.
-    
-### Disclaimer
+2. **Optimal K Grouping** – Determines the optimal number of clusters (`K`) based on your data, utilizing the `find.clusters` function from `adegenet`. This method identifies the most likely grouping without prior assumptions.  
 
-Users must be sure about their choices on their own data. There is no warrant for this script.
-You can change any parameters of the graph whenever you want.
+---
+
+## 📝 Important Considerations  
+
+- **Data Responsibility** – Ensure your data is appropriately formatted and that you understand the implications of your analytical choices.  
+- **Customization** – Feel free to modify graph parameters to better represent your findings.  
+- **No Warranty** – This script is provided as-is, without guarantees. Use it responsibly and validate your results.  
+
+---
+
+## 📚 Learn More  
+
+For detailed information on DAPC and its applications, consult the [adegenet package documentation](https://cran.r-project.org/web/packages/adegenet/index.html) and relevant literature, such as Jombart et al. (2010). 
